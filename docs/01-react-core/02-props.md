@@ -187,8 +187,10 @@ function Card({ title, children, className = "" }: CardProps) {
   return <article className={`rounded-lg border p-4 ${className}`}>{/* ... */}</article>;
 }
 
-<Card title="注意" className="border-red-300 bg-red-50">…</Card>
+<Card title="注意" className="shadow-md">…</Card>
 ```
+
+> **类名冲突不要靠拼接顺序解决。** 写成 `className="border-red-300 bg-red-50"` 后，`Card` 内部同时存在 `border-zinc-200` / `bg-white`；浏览器最终用哪条规则由 **Tailwind 生成的 CSS 顺序**决定，不是 `className` 在字符串里的先后。实测本项目里 `.bg-white` 排在 `.bg-red-50` 之后，结果还是白底。想换颜色就用变体 prop（如 `tone`）把整组类名一起换掉，或者用 `tailwind-merge` 合并冲突类名；本阶段只需要知道有这个坑。
 
 ```tsx
 // 2. 对象展开：字段刚好对得上时很省事
@@ -198,7 +200,7 @@ function Card({ title, children, className = "" }: CardProps) {
 注意：
 
 - 展开会把**所有**字段都传进去，包括组件不认识的；类型对不上会报错，对得上也可能把无关数据带进子组件。
-- 字符串拼 `className` 够用，遇到「条件类名 + 冲突覆盖」再上 `clsx` / `tailwind-merge`，本阶段不需要。
+- 字符串拼 `className` 只适合追加**不冲突**的样式（`shadow-md`、`mt-8`）。需要覆盖同属性的工具类时，用变体 prop 或 `tailwind-merge`，别指望拼接顺序。
 - 不要为了少写几行就传整个大对象（`data={everything}`），组件会变得难复用、难测试。
 
 ## 七、什么时候拆组件
@@ -240,7 +242,7 @@ function Card({ title, children, className = "" }: CardProps) {
   1. 「关于我」：一段文字 + `footer` 里放一个 `Badge label="开放合作" tone="green"`。
   2. 「技能」：`<ul>` 三项（手写，本课不练 map）。
   3. 「最近项目」：一段描述 + `footer` 里放 `Badge`，tone 用 `red` 或 `gray`。
-- 三个卡片都要用 `title`，至少两个用 `footer`，至少一个传 `className` 改边框色。
+- 三个卡片都要用 `title`，至少两个用 `footer`，至少一个传 `className` 加一个**不冲突**的额外样式（如 `shadow-md`、`mt-8`）。
 - 所有 props 类型都用 `type` 定义，全文件 0 个 `any`。
 
 ### 第 4 步（进阶）
@@ -305,7 +307,7 @@ export default function PropsPage() {
 
       <Card
         title="最近项目"
-        className="border-red-200 bg-red-50"
+        className="shadow-md"
         footer={<Badge label="暂停" tone="red" />}
       >
         <p>一个还在画原型的小工具。</p>
@@ -336,7 +338,7 @@ export default function PropsPage() {
 | `Cannot assign to read only property` | 在子组件里改了 props | 改成局部变量，或走回调让父组件改 |
 | `Objects are not valid as a React child` | 把对象/数组直接当 children 用 | 取字段，或 `items.map(...)` |
 | 默认值不生效 | 传了 `null` 或 `""` | 只传 `undefined`（即不传），或用 `??` 兜底 |
-| 卡片样式覆盖不了 | `className` 拼接顺序/冲突 | 保证 `className` 在最后，必要时用 `tailwind-merge` |
+| 卡片样式覆盖不了 | 基础类和 `className` 有同类工具类冲突，CSS 顺序决定胜者 | 用变体 prop 换整组类名，或用 `tailwind-merge`；`className` 只加不冲突的样式 |
 | `Each child in a list should have a unique "key"` | 本课没 map，出现说明你提前写了列表 | 下一课讲，先按 `<li>` 手写 |
 | 页面文字重复/组件不更新 | 在组件里改了 props 对象内部字段 | 保持不可变，回调交给父级 |
 
