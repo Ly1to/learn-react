@@ -23,7 +23,7 @@ docs/
 │   ├── 01-jsx.md               # ✅ 已就绪
 │   ├── 02-props.md             # ✅ 已就绪
 │   ├── 03-list.md              # ✅ 已就绪
-│   ├── 04-conditional.md       # 🚧 预留
+│   ├── 04-conditional.md       # ✅ 已就绪
 │   └── 05-final.md             # 🚧 预留（结业作业）
 └── 02-state-and-forms/         # 阶段 2
     ├── README.md               # 阶段总览
@@ -43,13 +43,13 @@ docs/
 
 ## 阶段总览
 
-> 目前**课程 01~03 与阶段 2（06~10）已就绪**，阶段 1 的 04~05 及后续阶段按进度补齐，不要提前看。
+> 目前**课程 01~04 与阶段 2（06~10）已就绪**，阶段 1 的 05 及后续阶段按进度补齐，不要提前看。
 > 阶段 2 开头的「10 分钟自查」会帮你确认阶段 1 的 props / 列表 / 条件渲染是否真的掌握。
 
 | 阶段 | 状态 | 文档 | 核心内容 |
 | --- | --- | --- | --- |
 | 0 | ✅ 已就绪 | [00-setup.md](./00-setup.md) | 跑起来、认目录、三条硬规则 |
-| 1 | 🚧 01~03 就绪 | [01-react-core.md](./01-react-core/README.md) | 课程 01~05：JSX、组件、props、列表、条件渲染 |
+| 1 | 🚧 01~04 就绪 | [01-react-core.md](./01-react-core/README.md) | 课程 01~05：JSX、组件、props、列表、条件渲染 |
 | 2 | ✅ 已就绪 | [02-state-and-forms.md](./02-state-and-forms/README.md) | 课程 06~10：useState、事件、受控表单、状态提升 |
 | 3 | ⬜ 待写 | `03-effects-and-refs.md` | useEffect、useRef、自定义 hook |
 | 4 | ⬜ 待写 | `04-next-routing.md` | 路由、layout、Link、loading/error |

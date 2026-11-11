@@ -42,7 +42,6 @@ function SkillItem({ skill }: { skill: Skill }) {
           {"★".repeat(skill.level)}
           <span className="text-zinc-300">{"☆".repeat(5 - skill.level)}</span>
         </span>
-        <span className="sr-only">难度 {skill.level} / 5</span>
       </span>
     </li>
   );
