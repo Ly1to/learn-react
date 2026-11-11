@@ -12,7 +12,7 @@
 | --- | --- | --- | --- | --- |
 | 01 | ✅ 已就绪 | [01-jsx.md](./01-jsx.md) | `app/learn/01-jsx/page.tsx` | JSX 语法、`{}`、组件、语义化标签 |
 | 02 | ✅ 已就绪 | [02-props.md](./02-props.md) | `app/learn/02-props/page.tsx` | props、类型、children 插槽、默认值、组件拆分 |
-| 03 | 🚧 预留 | [03-list.md](./03-list.md) | `app/learn/03-list/page.tsx` | `map` 渲染、`key` 规则、不可变排序 |
+| 03 | ✅ 已就绪 | [03-list.md](./03-list.md) | `app/learn/03-list/page.tsx` | `map` 渲染、`key` 规则、不可变排序 |
 | 04 | 🚧 预留 | [04-conditional.md](./04-conditional.md) | `app/learn/04-conditional/page.tsx` | 三元、短路、提前 return、空状态 |
 | 05 | 🚧 预留 | [05-final.md](./05-final.md) | `app/learn/05-final/page.tsx` | 结业作业：静态个人主页 |
 
@@ -69,7 +69,7 @@
 9. `tone?: "green" | "red"` 里不传 `tone` 时，默认值在什么情况下不生效？
 10. 一个组件收到 10 个 props、其中一半只是原样透传，说明什么？
 
-> 01、02 两课的答案在各课文末；03~05 的题目等对应课程生成后再补完整答案。
+> 01~03 的答案在各课文末；04~05 的题目等对应课程生成后再补完整答案。
 
 ## 五、常见错误对照（本阶段）
 
@@ -110,7 +110,7 @@ app/learn/02-props/page.tsx
 app/learn/03-list/page.tsx
 app/learn/04-conditional/page.tsx
 app/learn/05-final/page.tsx
-app/learn/_components/        # 可选，复用 Card / Badge
+app/learn/_components/        # 共用 Card / Badge（03 起复用）
 ```
 
 commit 一次：`feat(learn): 阶段 1 React 基础练习`

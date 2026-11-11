@@ -250,9 +250,9 @@ function Card({ title, children, className = "" }: CardProps) {
 - 加一个 `ProfileHeader` 组件：props 为 `name: string`、`bio: string`、`avatarUrl?: string`。
   - 没传 `avatarUrl` 时渲染灰色圆形占位（`<div className="size-16 rounded-full bg-zinc-200" />`）。
   - 传了就用 `<img>` 或 `next/image` 的 `<Image>` 显示。
-- 把 `Badge` 和 `Card` 放到 `app/learn/_components/` 下供后续课程复用（可选，但推荐）。
+- `Badge` 和 `Card` 已经抽到 `app/learn/_components/`，后续课程直接 import 复用。
 
-**参考实现**（先自己写，卡住再对照）：
+**参考实现**（先自己写，卡住再对照。组件实现供理解；实际仓库已抽到 `app/learn/_components/`，页面直接 import）：
 
 ```tsx
 import type { ReactNode } from "react";
@@ -373,4 +373,4 @@ export default function PropsPage() {
 
 ## 十二、下一课
 
-[03-list.md](./03-list.md)（预留）：用 `map` + `key` 把这一课手写的三张卡片变成数据驱动。
+[03-list.md](./03-list.md)：用 `map` + `key` 把这一课手写的三张卡片变成数据驱动。
