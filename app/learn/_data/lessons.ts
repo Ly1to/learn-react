@@ -42,4 +42,11 @@ export const lessons: Lesson[] = [
     description: "把前面几课合起来，做成一个纯服务端渲染的个人主页。",
     topics: ["server component", "组合", "结业"],
   },
+  {
+    href: "/learn/06-counter",
+    step: "06",
+    title: "计数器：useState 与事件",
+    description: "第一次让页面动起来：用 state 存计数与步长，点击事件通过函数式更新改它，并把取值卡在 0~100。",
+    topics: ["useState", "事件", "函数式更新"],
+  },
 ];
