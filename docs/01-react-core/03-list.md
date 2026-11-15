@@ -106,9 +106,11 @@ React 的视角：key `0` 还在，只是内容从 A 变成了 B —— 于是�
 ```tsx
 key={index}                    // ❌ 删除/排序后身份错乱
 key={Math.random()}            // ❌ 每次渲染都变，等于每次全部重建
-key={crypto.randomUUID()}      // ❌ 同上，而且渲染期调用还有 SSR 风险
+key={crypto.randomUUID()}      // ❌ 同上；本项目开了 cacheComponents，渲染期调用会直接构建报错
 key={item.name}                // ⚠️ 名字可能重复；改名会导致重建
 ```
+
+> `Math.random()` / `crypto.randomUUID()` / `new Date()` 在渲染期读取都会撞上 `next.config.ts` 里的 `cacheComponents: true`，构建时报 `Next.js encountered the unstable value ... while prerendering`。key 用业务 id，这类随机值只留在事件回调里（阶段 2 起）。
 
 ### key 不是 prop
 

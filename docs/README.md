@@ -8,7 +8,7 @@
 | React | 19.3.0 |
 | 语言 | TypeScript（`strict: true`） |
 | 样式 | Tailwind CSS v4（`@import "tailwindcss"`） |
-| 包管理 | pnpm（仓库里同时存在 `package-lock.json`，建议删掉只留 pnpm） |
+| 包管理 | pnpm（仓库里只有 `pnpm-lock.yaml`，不要混用 npm / yarn 生成第二份 lock 文件） |
 | 路径别名 | `@/*` → 项目根目录（`tsconfig.json`） |
 
 ## 文档结构
@@ -24,33 +24,33 @@ docs/
 │   ├── 02-props.md             # ✅ 已就绪
 │   ├── 03-list.md              # ✅ 已就绪
 │   ├── 04-conditional.md       # ✅ 已就绪
-│   └── 05-final.md             # 🚧 预留（结业作业）
+│   └── 05-final.md             # ✅ 已就绪（结业作业）
 └── 02-state-and-forms/         # 阶段 2
     ├── README.md               # 阶段总览
     └── 06-counter.md ...       # 课程 06~10
 ```
 
-课程编号 = `app/learn/` 下的目录编号：01-jsx、02-props、……、06-counter、07-forms、……，文档和代码一眼对得上。
+课程编号 = `app/learn/` 下的目录编号：01-jsx、02-props、……、06-counter、07-forms、……，文档和代码一眼对得上。主页 `/` 已经有课程目录，可以直接点进任意一课；`app/learn/layout.tsx` 会在每课顶部放一个「← 返回课程目录」的导航。
 
 ## 怎么用这套文档
 
 1. **先读阶段总览，再按课程编号顺序做**，不要跳。每课都是下一课的前置。
 2. 每课文件的结构固定：**目标 → 知识点 → 动手练习 → 验收 → 自测题 → 参考资料**。
-3. 练习写到 `app/learn/<课程号>-<主题>/page.tsx`，访问 `http://localhost:3000/learn/...` 就能看。标记「预留」的课不要提前写。
+3. 练习写到 `app/learn/<课程号>-<主题>/page.tsx`，访问 `http://localhost:3000/learn/...` 就能看。标为「⬜ 待写」的课还没生成，不要提前看。
    - 不要改 `app/page.tsx` 当练习场，那是项目入口，保持干净。
 4. **先自己写，卡住 20 分钟以上再翻 AI**。跑不通时先读报错的第一行。
 5. 学完一个阶段，在下面的进度表里打勾，并把练习代码 commit 一次。
 
 ## 阶段总览
 
-> 目前**课程 01~04 与阶段 2（06~10）已就绪**，阶段 1 的 05 及后续阶段按进度补齐，不要提前看。
+> 目前**阶段 1（01~05）与阶段 2（06~10）已就绪**，阶段 3 及之后按进度补齐，不要提前看。
 > 阶段 2 开头的「10 分钟自查」会帮你确认阶段 1 的 props / 列表 / 条件渲染是否真的掌握。
 
 | 阶段 | 状态 | 文档 | 核心内容 |
 | --- | --- | --- | --- |
 | 0 | ✅ 已就绪 | [00-setup.md](./00-setup.md) | 跑起来、认目录、三条硬规则 |
-| 1 | 🚧 01~04 就绪 | [01-react-core.md](./01-react-core/README.md) | 课程 01~05：JSX、组件、props、列表、条件渲染 |
-| 2 | ✅ 已就绪 | [02-state-and-forms.md](./02-state-and-forms/README.md) | 课程 06~10：useState、事件、受控表单、状态提升 |
+| 1 | ✅ 已就绪 | [01-react-core/](./01-react-core/README.md) | 课程 01~05：JSX、组件、props、列表、条件渲染、结业主页 |
+| 2 | ✅ 已就绪 | [02-state-and-forms/](./02-state-and-forms/README.md) | 课程 06~10：useState、事件、受控表单、状态提升 |
 | 3 | ⬜ 待写 | `03-effects-and-refs.md` | useEffect、useRef、自定义 hook |
 | 4 | ⬜ 待写 | `04-next-routing.md` | 路由、layout、Link、loading/error |
 | 5 | ⬜ 待写 | `05-server-client.md` | RSC 与 Client 的边界 |

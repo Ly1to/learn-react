@@ -14,9 +14,9 @@
 | 02 | ✅ 已就绪 | [02-props.md](./02-props.md) | `app/learn/02-props/page.tsx` | props、类型、children 插槽、默认值、组件拆分 |
 | 03 | ✅ 已就绪 | [03-list.md](./03-list.md) | `app/learn/03-list/page.tsx` | `map` 渲染、`key` 规则、不可变排序 |
 | 04 | ✅ 已就绪 | [04-conditional.md](./04-conditional.md) | `app/learn/04-conditional/page.tsx` | 三元、短路、提前 return、空状态 |
-| 05 | 🚧 预留 | [05-final.md](./05-final.md) | `app/learn/05-final/page.tsx` | 结业作业：静态个人主页 |
+| 05 | ✅ 已就绪 | [05-final.md](./05-final.md) | `app/learn/05-final/page.tsx` | 结业作业：静态个人主页（组件 + props + 列表 + 条件综合） |
 
-规则：**上一课验收没打勾，不要开下一课。** 预留文件不要提前写在练习目录里，等生成后按顺序做。
+规则：**上一课验收没打勾，不要开下一课。** 05 是结业作业，先自己写，再对照文档里的参考实现。
 
 ## 一、这个阶段不学什么
 
@@ -54,7 +54,7 @@
 - [ ] 能画出数据流向：常量 → props → 组件 → 渲染
 - [ ] 能解释 Server Component 下为什么静态页面不需要 JS 交互代码
 - [ ] 能解释 props 只读、key 的作用、`{0 && ...}` 的坑
-- [ ] 五课练习全部验收，`pnpm lint` 通过
+- [ ] 五课练习全部验收，`pnpm lint` 与 `pnpm exec tsc --noEmit` 通过
 
 ## 四、自测题
 
@@ -69,7 +69,7 @@
 9. `tone?: "green" | "red"` 里不传 `tone` 时，默认值在什么情况下不生效？
 10. 一个组件收到 10 个 props、其中一半只是原样透传，说明什么？
 
-> 01~04 的答案在各课文末；05 的题目等结业作业生成后再补完整答案。
+> 01~04 的答案在各课文末；上面 10 题是阶段总复习，做完 05 结业作业再回来答。
 
 ## 五、常见错误对照（本阶段）
 
@@ -105,12 +105,18 @@
 完成后你的仓库里应该有：
 
 ```
-app/learn/01-jsx/page.tsx
-app/learn/02-props/page.tsx
-app/learn/03-list/page.tsx
-app/learn/04-conditional/page.tsx
-app/learn/05-final/page.tsx
-app/learn/_components/        # 共用 Card / Badge（03 起复用）
+app/learn/
+├── layout.tsx                # 课程共用顶部导航（返回课程目录）
+├── _data/lessons.ts          # 主页课程目录的数据
+├── _components/              # 共用 Card / Badge（02 起复用）
+├── 01-jsx/page.tsx
+├── 02-props/page.tsx
+├── 03-list/page.tsx
+├── 04-conditional/page.tsx
+└── 05-final/
+    ├── page.tsx              # 只做组合
+    ├── data.ts               # 类型 + 常量 + statusMeta
+    └── _components/          # profile-header / skill-list / project-list
 ```
 
 commit 一次：`feat(learn): 阶段 1 React 基础练习`

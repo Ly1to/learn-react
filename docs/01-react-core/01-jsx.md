@@ -135,6 +135,7 @@ export default function JsxBasicsPage() {
 
 - 页面结构：`<main className="mx-auto max-w-2xl p-8">` 里放 `header` + 两个 `section` + `footer`。
 - `header`：`<h1>` 标题、一句自我介绍、`{}` 里做一次运算（如 `2025 - 1998`）显示年龄，并用三元根据年龄显示「成年 / 未成年」。
+  - 年龄写成常量运算，**不要用 `new Date().getFullYear()`**：本项目开了 `cacheComponents`，预渲染时读系统时间会直接构建失败（见本课「易错点」最后一行）。
 - 第一个 `section`：技能列表，3 项，手写 `<ul><li>`，**先不要 map**（下一课练）。
 - 第二个 `section`：调用一个独立组件 `<Greeting />`，组件返回一句问候语。
 - 每个 `section` 有 `<h2>`，并用 `aria-labelledby` 关联。
@@ -161,6 +162,7 @@ export default function JsxBasicsPage() {
 | 组件渲染成未知标签 | 组件名小写 | 首字母大写 |
 | 页面多出一个 `0` | `{items.length && ...}` | 改 `items.length > 0 && ...` 或三元 |
 | 控制台警告嵌套结构不合法 | `<p>` 里套 `<div>`、`<li>` 不在 `<ul>` 里 | 按 HTML 内容模型改结构 |
+| 构建报 `Next.js encountered the unstable value new Date() while prerendering` | 渲染期读了系统时间；项目开了 `cacheComponents`，预渲染不允许不稳定值 | 年龄/日期写成常量（如 `2025 - 1998`）；确实要当前时间用 `await io()` + `<Suspense>`（阶段 3、6） |
 
 ## 八、自测题
 

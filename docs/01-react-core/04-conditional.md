@@ -332,4 +332,4 @@ function DraftBanner({ status }: { status: ArticleStatus }) {
 
 ## 十一、下一课
 
-[05-final.md](./05-final.md)（预留）：把前四课合成一个静态个人主页，作为阶段 1 的结业作业。
+[05-final.md](./05-final.md)：阶段 1 结业作业，把前四课合成一个静态个人主页。没有新知识点，重点是综合运用与组件拆分。
